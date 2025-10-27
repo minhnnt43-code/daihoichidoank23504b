@@ -466,6 +466,17 @@ footer p {
 /* ========================================================== */
 
 @media (max-width: 992px) {
+    /* === THAY ĐỔI CHO HEADER TRÊN MOBILE === */
+    /* Bỏ chế độ dính (sticky) và thu nhỏ logo, padding */
+    header {
+        position: static; /* Quan trọng: Cho header cuộn đi */
+        padding: 10px 0;
+    }
+
+    header .logo img {
+        height: 50px;
+    }
+    
     header .container {
         flex-direction: column;
         gap: 15px;
@@ -482,7 +493,7 @@ footer p {
     header h2 { font-size: 1.1rem; }
     header nav a { margin: 0 10px; }
 
-    /* === MỚI: Canh lề trái cho văn bản để dễ đọc trên mobile === */
+    /* Canh lề trái cho văn bản để dễ đọc trên mobile */
     #gioi-thieu-content p {
         text-align: left;
     }
@@ -495,7 +506,7 @@ footer p {
         grid-template-columns: 1fr !important;
     }
 
-    /* === MỚI: Sửa giao diện Bảng điều khiển trên mobile === */
+    /* Sửa giao diện Bảng điều khiển trên mobile */
     .dashboard-header {
         flex-direction: column; /* Xếp chồng các mục */
         align-items: flex-start; /* Canh lề trái */
@@ -512,7 +523,7 @@ footer p {
 }
 
 @media (max-width: 580px) {
-    /* === MỚI: Xếp chồng 2 nút ở cuối Bảng điều khiển === */
+    /* Xếp chồng 2 nút ở cuối Bảng điều khiển */
     .dashboard-footer {
         flex-direction: column;
         gap: 15px;
@@ -542,7 +553,7 @@ footer p {
         grid-template-columns: 1fr;
     }
     
-    /* === MỚI: Điều chỉnh Văn kiện trên màn hình rất nhỏ === */
+    /* Điều chỉnh Văn kiện trên màn hình rất nhỏ */
     .van-kien-item {
         flex-direction: column;
         gap: 15px;
