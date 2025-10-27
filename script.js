@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ========================================================== //
-    // ================= LOGIC ĐẾM NGƯỢỢC ======================== //
+    // ================= LOGIC ĐẾM NGƯỢC ======================== //
     // ========================================================== //
     
     const countdownContainer = document.getElementById('countdown-container');
@@ -11,18 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
 
-    // Thiết lập thời gian mục tiêu: 8:30 ngày 30 tháng 10 năm 2025
-    const targetDate = new Date('2025-10-30T08:30:00');
+    // === SỬA LỖI TẠI ĐÂY ===
+    // Thời gian cũ (gây lỗi múi giờ): const targetDate = new Date('2025-10-30T08:30:00');
+    // Thời gian mới theo chuẩn UTC (08:30 GMT+7 -> 01:30 UTC)
+    const targetDate = new Date('2025-10-30T01:30:00Z');
 
-    // SỬA LỖI: Khai báo biến countdownInterval bằng `let` ở đây để nó có thể được truy cập trong hàm updateCountdown
     let countdownInterval;
 
     function updateCountdown() {
         const now = new Date();
+        // JavaScript tự động xử lý so sánh giữa thời gian UTC và thời gian địa phương một cách chính xác
         const diff = targetDate - now;
 
         if (diff <= 0) {
-            // Ngừng đếm ngược khi đã đến giờ
             if (countdownInterval) {
                 clearInterval(countdownInterval);
             }
@@ -35,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        // Chỉ cập nhật DOM nếu các phần tử tồn tại
         if (daysEl && hoursEl && minutesEl && secondsEl) {
             daysEl.textContent = String(days).padStart(2, '0');
             hoursEl.textContent = String(hours).padStart(2, '0');
@@ -44,9 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Chạy ngay lần đầu để không bị trễ 1 giây
     updateCountdown();
-    // Cập nhật đếm ngược mỗi giây
     countdownInterval = setInterval(updateCountdown, 1000);
 
 
@@ -154,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         vanKienList.querySelectorAll('.van-kien-item').forEach(item => {
             const spanText = item.querySelector('span').textContent;
             const text = spanText.replace(/^\d+\.\s*/, '');
-            // CẢI TIẾN: Lấy thuộc tính 'href' để tránh lấy full URL
             const link = item.querySelector('a').getAttribute('href');
             editVanKienList.appendChild(createVanKienEditItem(text, link));
         });
