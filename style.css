@@ -482,6 +482,11 @@ footer p {
     header h2 { font-size: 1.1rem; }
     header nav a { margin: 0 10px; }
 
+    /* === MỚI: Canh lề trái cho văn bản để dễ đọc trên mobile === */
+    #gioi-thieu-content p {
+        text-align: left;
+    }
+
     .nhan-su-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -489,12 +494,32 @@ footer p {
     .edit-item-container {
         grid-template-columns: 1fr !important;
     }
+
+    /* === MỚI: Sửa giao diện Bảng điều khiển trên mobile === */
+    .dashboard-header {
+        flex-direction: column; /* Xếp chồng các mục */
+        align-items: flex-start; /* Canh lề trái */
+        gap: 10px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .dashboard-content, .dashboard-section {
+        padding: 15px; /* Giảm padding để có thêm không gian */
+    }
 }
 
 @media (max-width: 580px) {
+    /* === MỚI: Xếp chồng 2 nút ở cuối Bảng điều khiển === */
     .dashboard-footer {
         flex-direction: column;
         gap: 15px;
+    }
+
+    .dashboard-footer button {
+        font-size: 1rem;
     }
 }
 
@@ -515,5 +540,12 @@ footer p {
 
     .nhan-su-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* === MỚI: Điều chỉnh Văn kiện trên màn hình rất nhỏ === */
+    .van-kien-item {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
     }
 }
