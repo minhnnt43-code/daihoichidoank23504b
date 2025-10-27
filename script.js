@@ -1,551 +1,426 @@
-:root {
-    --primary-color: #0d47a1; /* Màu xanh đậm của Đoàn */
-    --secondary-color: #1976d2; /* Màu xanh sáng hơn */
-    --text-color: #333333;
-    --light-gray: #f5f7fa;
-    --white: #ffffff;
-    --border-color: #e0e0e0;
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    /* Ưu tiên UTM Avo, nếu không có sẽ dùng Montserrat */
-    font-family: 'UTM Avo', 'Montserrat', sans-serif;
-    line-height: 1.7;
-    color: var(--text-color);
-    background-color: var(--white);
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-section {
-    padding: 60px 0;
-}
-
-.section-bg {
-    background-color: var(--light-gray);
-}
-
-h1, h2, h3, h4 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-h3 {
-    text-align: center;
-    font-size: 2.2rem;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.btn {
-    display: inline-block;
-    background: var(--secondary-color);
-    color: var(--white);
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover {
-    background: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-
-/* ========================================================== */
-/* ======================== HEADER ========================== */
-/* ========================================================== */
-header {
-    background: var(--white);
-    padding: 15px 0;
-    box-shadow: var(--box-shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo img {
-    height: 60px;
-    cursor: pointer; /* Thêm con trỏ để gợi ý có thể click */
-}
-
-header .title-container {
-    text-align: center;
-    flex-grow: 1;
-    padding: 0 20px; /* Thêm khoảng đệm để không bị dính vào logo và nav */
-}
-
-header h1 {
-    /* Ưu tiên UTM Impact, nếu không có sẽ dùng font mặc định của h1 */
-    font-family: 'UTM Impact', 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    margin: 0;
-    text-transform: uppercase;
-}
-
-header h2 {
-    font-size: 1.3rem;
-    margin: 0;
-    color: var(--secondary-color);
-    font-weight: 500;
-}
-
-header nav a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 5px;
-    white-space: nowrap; /* Đảm bảo các mục menu không bị xuống dòng */
-}
-
-header nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--secondary-color);
-    transition: width 0.3s ease-in-out;
-}
-
-header nav a:hover::after {
-    width: 100%;
-}
-
-
-/* ========================================================== */
-/* ===================== NỘI DUNG CHÍNH ===================== */
-/* ========================================================== */
-
-/* Giới thiệu */
-#gioi-thieu-content p {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    text-align: justify;
-}
-
-/* Văn kiện */
-.van-kien-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--white);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.van-kien-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.van-kien-item span {
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin-right: 20px;
-}
-
-/* Nhân sự */
-.nhan-su-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.nhan-su-card {
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nhan-su-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-.nhan-su-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-}
-
-.nhan-su-info {
-    padding: 20px;
-}
-
-.nhan-su-info h4 {
-    margin-bottom: 5px;
-    font-size: 1.3rem;
-}
-
-.nhan-su-info p {
-    color: var(--secondary-color);
-    font-size: 1rem;
-    margin: 0;
-}
-
-/* Tin tức */
-.tin-tuc-item {
-    background: var(--white);
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: var(--box-shadow);
-}
-
-.tin-tuc-item h4 {
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-}
-
-
-/* ========================================================== */
-/* ======================== FOOTER ========================== */
-/* ========================================================== */
-footer {
-    background: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    padding: 30px 0;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-
-/* ========================================================== */
-/* ====================== ADMIN PANEL ======================= */
-/* ========================================================== */
-
-.hidden {
-    display: none !important;
-}
-
-#admin-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Form đăng nhập */
-#login-form-container {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-#login-form-container h3 {
-    text-align: center;
-    font-size: 1.8rem;
-}
-
-#login-form-container input {
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-#login-form-container button {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#login-form-container button:hover {
-    background-color: #0b3a82;
-}
-
-#login-error {
-    color: #d32f2f;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* Bảng điều khiển */
-#dashboard {
-    background: var(--light-gray);
-    width: 95%;
-    max-width: 1200px;
-    height: 90vh;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.dashboard-header, .dashboard-footer {
-    padding: 20px;
-    background: var(--white);
-    flex-shrink: 0;
-}
-
-.dashboard-header {
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.dashboard-header h2{
-    margin: 0;
-}
-.dashboard-header p{
-    margin: 0;
-    color: #757575;
-}
-
-.dashboard-content {
-    padding: 20px;
-    overflow-y: auto;
-    flex-grow: 1;
-}
-
-.dashboard-section {
-    background: var(--white);
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid var(--border-color);
-}
-
-.dashboard-section h3 {
-    font-size: 1.5rem;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dashboard-section label {
-    display: block;
-    margin: 15px 0 5px;
-    font-weight: 500;
-}
-
-.dashboard-section input[type="text"],
-.dashboard-section input[type="url"],
-.dashboard-section textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: 'UTM Avo', 'Montserrat', sans-serif;
-}
-
-.dashboard-section textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.btn-add {
-    background: #28a745;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-}
-.btn-add:hover{
-    background: #218838;
-}
-
-.btn-remove {
-    background: #dc3545;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-.btn-remove:hover {
-    background: #c82333;
-}
-
-.edit-item-container {
-    padding: 15px;
-    border: 1px dashed var(--border-color);
-    border-radius: 5px;
-    margin-bottom: 15px;
-    display: grid;
-    gap: 10px;
-}
-
-.edit-item-container.van-kien-edit { grid-template-columns: 1fr auto auto; align-items: center; }
-.edit-item-container.nhan-su-edit { grid-template-columns: 1fr 1fr; }
-.edit-item-container.tin-tuc-edit { grid-template-columns: 1fr; } /* Thay đổi để textarea rộng hơn */
-.edit-item-container.tin-tuc-edit .btn-remove { margin-top: 10px; }
-
-
-.dashboard-footer {
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dashboard-footer button {
-    width: 100%;
-    max-width: 500px;
-    padding: 15px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    cursor: pointer;
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-#generate-html-btn {
-    background: var(--primary-color);
-}
-
-#generate-html-btn:hover {
-    background: #0b3a82;
-}
-
-#export-json-btn:hover {
-    filter: brightness(0.9);
-}
-
-
-/* ========================================================== */
-/* ===================== RESPONSIVE ========================= */
-/* ========================================================== */
-
-@media (max-width: 992px) {
-    header .container {
-        flex-direction: column;
-        gap: 15px;
+// Chờ cho toàn bộ tài liệu HTML được tải xong rồi mới chạy mã JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ========================================================== //
+    // =============== KHAI BÁO CÁC BIẾN CẦN THIẾT =============== //
+    // ========================================================== //
+
+    // --- Các yếu tố của Bảng quản trị (Admin Panel) ---
+    const adminPanel = document.getElementById('admin-panel');
+    const loginForm = document.getElementById('login-form-container');
+    const dashboard = document.getElementById('dashboard');
+
+    // --- Các yếu tố của Form đăng nhập ---
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginBtn = document.getElementById('login-btn');
+    const loginError = document.getElementById('login-error');
+
+    // --- Nút kích hoạt bí mật (logo) và các nút chính ---
+    const pageLogo = document.getElementById('page-logo');
+    const generateBtn = document.getElementById('generate-html-btn');
+    const addVanKienBtn = document.getElementById('add-van-kien-btn');
+    const addNhanSuBtn = document.getElementById('add-nhan-su-btn');
+    const addTinTucBtn = document.getElementById('add-tin-tuc-btn');
+
+    // === BỔ SUNG: Các nút và input cho tính năng Import/Export JSON ===
+    const exportJsonBtn = document.getElementById('export-json-btn');
+    const importJsonBtn = document.getElementById('import-json-btn');
+    const importFileInput = document.getElementById('import-file-input');
+    
+    // --- Các vùng chứa nội dung trên trang CÔNG KHAI ---
+    const mainTitle = document.getElementById('main-title');
+    const subTitle = document.getElementById('sub-title');
+    const gioiThieuContent = document.getElementById('gioi-thieu-content');
+    const vanKienList = document.getElementById('van-kien-list');
+    const nhanSuList = document.getElementById('nhan-su-list');
+    const tinTucList = document.getElementById('tin-tuc-list');
+    const footerContent = document.getElementById('footer-content');
+
+    // --- Các vùng nhập liệu trong Bảng ĐIỀU KHIỂN ---
+    const editMainTitle = document.getElementById('edit-main-title');
+    const editSubTitle = document.getElementById('edit-sub-title');
+    const editGioiThieuContent = document.getElementById('edit-gioi-thieu-content');
+    const editVanKienList = document.getElementById('edit-van-kien-list');
+    const editNhanSuList = document.getElementById('edit-nhan-su-list');
+    const editTinTucList = document.getElementById('edit-tin-tuc-list');
+    const editFooterContent = document.getElementById('edit-footer-content');
+
+    // --- Biến cho cơ chế kích hoạt bí mật ---
+    let logoClickCount = 0;
+    let logoClickTimer = null;
+
+
+    // ========================================================== //
+    // ============ LOGIC KÍCH HOẠT VÀ ĐĂNG NHẬP ADMIN ========== //
+    // ========================================================== //
+
+    // --- Kích hoạt Bảng quản trị bằng cách nhấn vào logo 5 lần ---
+    pageLogo.addEventListener('click', () => {
+        logoClickCount++;
+        // Đặt lại bộ đếm nếu không nhấn đủ 5 lần trong 2 giây
+        clearTimeout(logoClickTimer);
+        logoClickTimer = setTimeout(() => {
+            logoClickCount = 0;
+        }, 2000);
+
+        if (logoClickCount === 5) {
+            logoClickCount = 0;
+            adminPanel.classList.remove('hidden');
+        }
+    });
+
+    // --- Thoát Bảng quản trị bằng phím Escape ---
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            adminPanel.classList.add('hidden');
+            // Reset về màn hình đăng nhập
+            dashboard.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            loginError.classList.add('hidden');
+            // Xóa các trường input
+            usernameInput.value = '';
+            passwordInput.value = '';
+        }
+    });
+
+    // --- Xử lý đăng nhập ---
+    loginBtn.addEventListener('click', () => {
+        // !!! QUAN TRỌNG: Hãy thay đổi mật khẩu này để bảo mật hơn !!!
+        const CORRECT_PASSWORD = 'daihoi2025';
+
+        if (usernameInput.value.trim() === 'lamquocminh' && passwordInput.value === CORRECT_PASSWORD) {
+            loginForm.classList.add('hidden');
+            dashboard.classList.remove('hidden');
+            populateDashboard(); // Tải dữ liệu hiện tại vào Bảng điều khiển
+        } else {
+            loginError.classList.remove('hidden');
+            passwordInput.value = '';
+        }
+    });
+
+
+    // ========================================================== //
+    // = LOGIC TẢI DỮ LIỆU TỪ TRANG WEB VÀO BẢNG ĐIỀU KHIỂN ====== //
+    // ========================================================== //
+
+    function populateDashboard() {
+        // 1. Tải các nội dung đơn giản (văn bản và HTML)
+        editMainTitle.value = mainTitle.textContent;
+        editSubTitle.value = subTitle.textContent;
+        editGioiThieuContent.value = gioiThieuContent.innerHTML;
+        editFooterContent.value = footerContent.innerHTML;
+
+        // 2. Tải danh sách Văn kiện
+        editVanKienList.innerHTML = ''; // Xóa sạch trước khi tải
+        vanKienList.querySelectorAll('.van-kien-item').forEach(item => {
+            const text = item.querySelector('span').textContent;
+            const link = item.querySelector('a').href;
+            const newItem = createVanKienEditItem(text, link);
+            editVanKienList.appendChild(newItem);
+        });
+
+        // 3. Tải danh sách Nhân sự
+        editNhanSuList.innerHTML = '';
+        nhanSuList.querySelectorAll('.nhan-su-card').forEach(card => {
+            const imgSrc = card.querySelector('img').src;
+            const name = card.querySelector('h4').textContent;
+            const position = card.querySelector('p').textContent;
+            const newItem = createNhanSuEditItem(imgSrc, name, position);
+            editNhanSuList.appendChild(newItem);
+        });
+        
+        // 4. Tải danh sách Tin tức
+        editTinTucList.innerHTML = '';
+        tinTucList.querySelectorAll('.tin-tuc-item').forEach(item => {
+            const title = item.querySelector('h4').textContent;
+            const content = item.querySelector('p').innerHTML;
+            const newItem = createTinTucEditItem(title, content);
+            editTinTucList.appendChild(newItem);
+        });
     }
 
-    header nav {
-        margin-top: 10px;
-    }
-}
 
-@media (max-width: 768px) {
-    h3 { font-size: 1.8rem; }
-    header h1 { font-size: 1.4rem; }
-    header h2 { font-size: 1.1rem; }
-    header nav a { margin: 0 10px; }
+    // ========================================================== //
+    // == CÁC HÀM TẠO GIAO DIỆN CHỈNH SỬA (THÊM/SỬA/XÓA) ======== //
+    // ========================================================== //
 
-    /* === MỚI: Canh lề trái cho văn bản để dễ đọc trên mobile === */
-    #gioi-thieu-content p {
-        text-align: left;
-    }
-
-    .nhan-su-grid {
-        grid-template-columns: 1fr 1fr;
+    // --- Tạo ô chỉnh sửa cho VĂN KIỆN ---
+    function createVanKienEditItem(text = '', link = '#') {
+        const div = document.createElement('div');
+        div.className = 'edit-item-container van-kien-edit';
+        div.innerHTML = `
+            <input type="text" placeholder="Tên văn kiện" value="${text}">
+            <input type="url" placeholder="Đường dẫn tải về (URL)" value="${link}">
+            <button class="btn-remove">Xóa</button>
+        `;
+        div.querySelector('.btn-remove').addEventListener('click', () => div.remove());
+        return div;
     }
 
-    .edit-item-container {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* === MỚI: Sửa giao diện Bảng điều khiển trên mobile === */
-    .dashboard-header {
-        flex-direction: column; /* Xếp chồng các mục */
-        align-items: flex-start; /* Canh lề trái */
-        gap: 10px;
-    }
-
-    .dashboard-header h2 {
-        font-size: 1.4rem;
-    }
-
-    .dashboard-content, .dashboard-section {
-        padding: 15px; /* Giảm padding để có thêm không gian */
-    }
-}
-
-@media (max-width: 580px) {
-    /* === MỚI: Xếp chồng 2 nút ở cuối Bảng điều khiển === */
-    .dashboard-footer {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .dashboard-footer button {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header .title-container {
-        text-align: center;
+    // --- Tạo ô chỉnh sửa cho NHÂN SỰ ---
+    function createNhanSuEditItem(imgSrc = 'https://via.placeholder.com/250x250.png?text=Ảnh+3x4', name = '', position = '') {
+        const div = document.createElement('div');
+        div.className = 'edit-item-container nhan-su-edit';
+        div.innerHTML = `
+            <div>
+                <label>Họ và tên:</label>
+                <input type="text" placeholder="Nguyễn Văn A" value="${name}">
+            </div>
+            <div>
+                <label>Chức vụ ứng cử:</label>
+                <input type="text" placeholder="Ứng cử Bí thư" value="${position}">
+            </div>
+            <div style="grid-column: 1 / -1;">
+                <label>URL Hình ảnh:</label>
+                <input type="url" placeholder="https://..." value="${imgSrc}">
+            </div>
+            <button class="btn-remove" style="grid-column: 1 / -1;">Xóa Nhân sự này</button>
+        `;
+        div.querySelector('.btn-remove').addEventListener('click', () => div.remove());
+        return div;
     }
     
-    header nav {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    header nav a {
-        margin: 5px 10px;
+    // --- Tạo ô chỉnh sửa cho TIN TỨC ---
+    function createTinTucEditItem(title = '', content = '') {
+        const div = document.createElement('div');
+        div.className = 'edit-item-container tin-tuc-edit';
+        div.innerHTML = `
+            <div>
+                 <label>Tiêu đề tin tức:</label>
+                <input type="text" placeholder="Tiêu đề tin tức" value="${title}">
+                 <label>Nội dung (hỗ trợ thẻ p, b, i):</label>
+                <textarea rows="4">${content}</textarea>
+            </div>
+            <button class="btn-remove">Xóa</button>
+        `;
+        div.querySelector('.btn-remove').addEventListener('click', () => div.remove());
+        return div;
     }
 
-    .nhan-su-grid {
-        grid-template-columns: 1fr;
-    }
+
+    // --- Gắn sự kiện cho các nút "Thêm mới" ---
+    addVanKienBtn.addEventListener('click', () => {
+        editVanKienList.appendChild(createVanKienEditItem());
+    });
     
-    /* === MỚI: Điều chỉnh Văn kiện trên màn hình rất nhỏ === */
-    .van-kien-item {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+    addNhanSuBtn.addEventListener('click', () => {
+        editNhanSuList.appendChild(createNhanSuEditItem());
+    });
+    
+    addTinTucBtn.addEventListener('click', () => {
+        editTinTucList.appendChild(createTinTucEditItem());
+    });
+    
+    
+    // ========================================================== //
+    // ============ LOGIC IMPORT/EXPORT DỮ LIỆU JSON ============ //
+    // ========================================================== //
+
+    // --- Hàm thu thập toàn bộ dữ liệu từ Bảng điều khiển ---
+    function collectDashboardData() {
+        const data = {
+            thongTinChung: {
+                tieuDeChinh: editMainTitle.value,
+                tieuDePhu: editSubTitle.value
+            },
+            gioiThieu: editGioiThieuContent.value,
+            vanKien: [],
+            nhanSu: [],
+            tinTuc: [],
+            footer: editFooterContent.value
+        };
+
+        // Thu thập Văn kiện
+        editVanKienList.querySelectorAll('.edit-item-container').forEach(item => {
+            data.vanKien.push({
+                ten: item.querySelectorAll('input')[0].value,
+                duongDan: item.querySelectorAll('input')[1].value
+            });
+        });
+
+        // Thu thập Nhân sự
+        editNhanSuList.querySelectorAll('.edit-item-container').forEach(item => {
+            data.nhanSu.push({
+                hoTen: item.querySelectorAll('input')[0].value,
+                chucVu: item.querySelectorAll('input')[1].value,
+                hinhAnh: item.querySelectorAll('input')[2].value
+            });
+        });
+
+        // Thu thập Tin tức
+        editTinTucList.querySelectorAll('.edit-item-container').forEach(item => {
+            data.tinTuc.push({
+                tieuDe: item.querySelector('input').value,
+                noiDung: item.querySelector('textarea').value
+            });
+        });
+
+        return data;
     }
-}
+
+    // --- Hàm điền dữ liệu từ file JSON vào Bảng điều khiển ---
+    function populateDashboardFromJson(data) {
+        // 1. Xóa sạch các danh sách hiện có để tránh trùng lặp
+        editVanKienList.innerHTML = '';
+        editNhanSuList.innerHTML = '';
+        editTinTucList.innerHTML = '';
+
+        // 2. Điền thông tin chung
+        editMainTitle.value = data.thongTinChung?.tieuDeChinh || '';
+        editSubTitle.value = data.thongTinChung?.tieuDePhu || '';
+        editGioiThieuContent.value = data.gioiThieu || '';
+        editFooterContent.value = data.footer || '';
+
+        // 3. Điền danh sách Văn kiện
+        data.vanKien?.forEach(item => {
+            const newItem = createVanKienEditItem(item.ten, item.duongDan);
+            editVanKienList.appendChild(newItem);
+        });
+
+        // 4. Điền danh sách Nhân sự
+        data.nhanSu?.forEach(item => {
+            const newItem = createNhanSuEditItem(item.hinhAnh, item.hoTen, item.chucVu);
+            editNhanSuList.appendChild(newItem);
+        });
+        
+        // 5. Điền danh sách Tin tức
+        data.tinTuc?.forEach(item => {
+            const newItem = createTinTucEditItem(item.tieuDe, item.noiDung);
+            editTinTucList.appendChild(newItem);
+        });
+    }
+
+    // --- Sự kiện cho nút LƯU DỮ LIỆU (EXPORT) ---
+    exportJsonBtn.addEventListener('click', () => {
+        const data = collectDashboardData();
+        const jsonData = JSON.stringify(data, null, 2); // null, 2 để format file JSON cho đẹp
+        const blob = new Blob([jsonData], { type: 'application/json;charset=utf-8' });
+        
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'daihoi_data.json';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+        
+        alert('File dữ liệu "daihoi_data.json" đã được tạo và tải về!');
+    });
+
+    // --- Sự kiện cho nút TẢI DỮ LIỆU (IMPORT) ---
+    importJsonBtn.addEventListener('click', () => {
+        // Kích hoạt input file ẩn khi bấm nút
+        importFileInput.click();
+    });
+
+    importFileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (!file) {
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const data = JSON.parse(e.target.result);
+                populateDashboardFromJson(data);
+                alert('Dữ liệu đã được tải thành công vào Bảng điều khiển!');
+            } catch (error) {
+                alert('Lỗi: File JSON không hợp lệ hoặc bị lỗi. Vui lòng kiểm tra lại file.');
+                console.error("Lỗi khi đọc file JSON:", error);
+            }
+        };
+        reader.onerror = () => {
+            alert('Đã xảy ra lỗi khi đọc file.');
+        };
+        reader.readAsText(file);
+
+        // Reset input để có thể tải lại cùng một file nếu cần
+        event.target.value = ''; 
+    });
+
+
+    // ========================================================== //
+    // ============ LOGIC TẠO VÀ TẢI FILE HTML MỚI ============== //
+    // ========================================================== //
+
+    generateBtn.addEventListener('click', () => {
+        // 1. Tạo một bản sao của tài liệu HTML hiện tại trong bộ nhớ
+        const clonedDocument = document.cloneNode(true);
+
+        // 2. Cập nhật các nội dung đơn giản trên bản sao
+        clonedDocument.getElementById('main-title').textContent = editMainTitle.value;
+        clonedDocument.getElementById('sub-title').textContent = editSubTitle.value;
+        clonedDocument.getElementById('gioi-thieu-content').innerHTML = editGioiThieuContent.value;
+        clonedDocument.getElementById('footer-content').innerHTML = editFooterContent.value;
+
+        // 3. Cập nhật các danh sách phức tạp
+        // --- Cập nhật Văn kiện ---
+        const vanKienListClone = clonedDocument.getElementById('van-kien-list');
+        vanKienListClone.innerHTML = ''; // Xóa nội dung cũ
+        editVanKienList.querySelectorAll('.edit-item-container').forEach(item => {
+            const text = item.querySelectorAll('input')[0].value;
+            const link = item.querySelectorAll('input')[1].value;
+            if(text.trim()) { // Chỉ thêm nếu có tên
+                vanKienListClone.innerHTML += `
+                    <div class="van-kien-item">
+                        <span>${text}</span>
+                        <a href="${link}" class="btn" download>Tải về</a>
+                    </div>`;
+            }
+        });
+
+        // --- Cập nhật Nhân sự ---
+        const nhanSuListClone = clonedDocument.getElementById('nhan-su-list');
+        nhanSuListClone.innerHTML = '';
+        editNhanSuList.querySelectorAll('.edit-item-container').forEach(item => {
+            const name = item.querySelectorAll('input')[0].value;
+            const position = item.querySelectorAll('input')[1].value;
+            const imgSrc = item.querySelectorAll('input')[2].value;
+            if(name.trim()) {
+                nhanSuListClone.innerHTML += `
+                    <div class="nhan-su-card">
+                        <img src="${imgSrc}" alt="Ảnh chân dung của ${name}">
+                        <div class="nhan-su-info">
+                            <h4>${name}</h4>
+                            <p>${position}</p>
+                        </div>
+                    </div>`;
+            }
+        });
+
+        // --- Cập nhật Tin tức ---
+        const tinTucListClone = clonedDocument.getElementById('tin-tuc-list');
+        tinTucListClone.innerHTML = '';
+        editTinTucList.querySelectorAll('.edit-item-container').forEach(item => {
+            const title = item.querySelector('input').value;
+            const content = item.querySelector('textarea').value;
+             if(title.trim()) {
+                tinTucListClone.innerHTML += `
+                     <article class="tin-tuc-item">
+                        <h4>${title}</h4>
+                        <p>${content}</p>
+                    </article>`;
+            }
+        });
+        
+        // 4. Xóa Bảng quản trị và thẻ script ra khỏi file HTML cuối cùng
+        clonedDocument.getElementById('admin-panel').remove();
+        clonedDocument.querySelector('script').remove();
+
+        // 5. Tạo và kích hoạt việc tải file
+        const finalHtml = '<!DOCTYPE html>\n' + clonedDocument.documentElement.outerHTML;
+        const blob = new Blob([finalHtml], { type: 'text/html;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'index_updated.html';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href); // Giải phóng bộ nhớ
+        
+        alert('File "index_updated.html" đã được tạo và đang được tải về!\nHãy đổi tên file thành "index.html" và tải lên hosting để cập nhật trang web.');
+    });
+
+});
