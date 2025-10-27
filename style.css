@@ -141,7 +141,63 @@ header nav a:hover::after {
 /* ===================== NỘI DUNG CHÍNH ===================== */
 /* ========================================================== */
 
+/* ---- MỚI: CSS CHO PHẦN ĐẾM NGƯỢC ---- */
+#thong-tin-dai-hoi {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+#countdown-container {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+.time-box {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 15px 25px;
+    border-radius: 8px;
+    min-width: 100px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.time-box .time {
+    font-size: 2.8rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1.2;
+}
+
+.time-box .label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: block;
+}
+
+#event-details {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+#event-details p {
+    margin: 5px 0;
+}
+/* ---- KẾT THÚC CSS CHO PHẦN ĐẾM NGƯỢC ---- */
+
+
 /* Giới thiệu */
+#gioi-thieu {
+    padding-top: 40px; /* Giảm padding top để cân đối với section mới */
+}
 #gioi-thieu-content p {
     margin-bottom: 15px;
     font-size: 1.1rem;
@@ -529,5 +585,14 @@ footer p {
 
     .nhan-su-grid {
         grid-template-columns: 1fr;
+    }
+
+    .time-box {
+        min-width: 80px;
+        padding: 10px;
+    }
+
+    .time-box .time {
+        font-size: 2.2rem;
     }
 }
